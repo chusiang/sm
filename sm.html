@@ -1,0 +1,150 @@
+<html>
+<!--
+#     sm.html
+#     Copyright (C) 2006 - 2010 Joachim Breitner
+#
+#     This program is free software; you can redistribute it and/or modify
+#     it under the terms of the GNU General Public License as published by
+#     the Free Software Foundation; either version 2 of the License, or
+#     (at your option) any later version.
+#
+#     This program is distributed in the hope that it will be useful,
+#     but WITHOUT ANY WARRANTY; without even the implied warranty of
+#     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#     GNU General Public License for more details.
+#
+#     You should have received a copy of the GNU General Public License
+#     along with this program; if not, write to the Free Software
+#     Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301 USA
+-->
+<style type="text/css">
+#textarea {
+	position:absolute;
+	top:0px;
+	left:0px;
+	width:100%;
+	height:100%;
+	white-space:nowrap;
+	font-family: sans;
+	padding:0px;
+	margin:0px;
+	border:0px;
+	text-align:center;
+	overflow:hidden;
+}
+
+#test {
+	position:absolute;
+	visibility:hidden;
+	top:0px;
+	left:0px;
+	font-size:30px;
+	white-space:pre;
+	font-family: sans;
+	border:0px;
+	padding:0.1em;
+	margin:0px;
+}
+#about {
+	position:absolute;
+	width:20em;
+	top:30px;
+	right:30px;
+	background-color:gray;
+	padding:1em;
+}
+
+</style>
+<script type="text/javascript">
+opacity = 100;
+function adjust() {
+	ta = document.getElementById("textarea");
+	test = document.getElementById("test");
+	
+	test.innerHTML=ta.value;
+	// Otherwise, the newline would not be counted.
+	if (ta.value[ta.value.length-1] == "\n") {
+		test.innerHTML += '.';
+	}
+
+	ratioX = (window.innerWidth) / test.offsetWidth;
+	ratioY = (window.innerHeight) / test.offsetHeight;
+	ratio = Math.min(ratioX,ratioY);
+	fontSize = Math.floor(30 * ratio) + "px"
+	ta.style.fontSize = fontSize;
+	newHeight = Math.ceil(test.offsetHeight * ratio);
+	//ta.style.height = newHeight + "px";
+	//ta.style.top = Math.floor((window.innerHeight - newHeight)/2) + "px";
+	ta.style.paddingTop = Math.floor((window.innerHeight - newHeight)/2) + "px";
+	ta.style.paddingBottom = Math.floor((window.innerHeight - newHeight)/2) + "px";
+	newWidth = Math.ceil(test.offsetWidth * ratio);
+	//ta.style.width = newWidth + "px";
+	ta.style.paddingLeft = Math.max(0,Math.floor((window.innerWidth - newWidth)/2)) + "px";
+	ta.style.paddingRight = Math.max(0,Math.floor((window.innerWidth - newWidth)/2)) + "px";
+	 
+	//test.innerHTML = newHeight + " " + window.innerHeight + " " + fontSize;
+	
+	href = window.location.hash = "#t=" + encodeURIComponent(ta.value);
+}
+
+function showBox() {
+	opacity = 100;
+	window.clearTimeout(timeout);
+	setOpacity();
+}
+function fadeOut() {
+	opacity *= 0.985;
+	if (opacity > 1) {
+		timeout = window.setTimeout("fadeOut()",20);
+	} else {
+		opacity = 0;
+	}
+	setOpacity();
+}
+function setOpacity() {
+	about = document.getElementById("about");
+	about.style.opacity = opacity/100;
+	about.style.filter = "alpha(opacity="+Math.round(opacity)+")";
+}
+
+function init() {
+	ta = document.getElementById("textarea");
+	ta.focus();
+
+	var queryString = {};
+	window.location.href.replace(
+		new RegExp("([^?=&;#]+)(=([^&;]*))", "g"),
+		function($0, $1, $2, $3) {queryString[$1] = decodeURIComponent($3); }
+	);
+	if (queryString['t']) {
+		ta.value = queryString['t'];
+	}
+	adjust();
+	timeout = window.setTimeout("fadeOut();",1000);
+	setOpacity();
+	
+	if (window.navigator.mozApps) {
+		document.getElementById("firefox").style.display = "block";
+	}
+}
+</script>
+<body onload="init()" onresize="adjust()">
+<textarea id="textarea" onKeyUp="adjust()" onpaste="adjust()" oninput="adjust()">:-)</textarea>
+<span id="test"></span>
+<div id="about" onMouseOver="showBox()" onMouseOut="fadeOut()">
+<p>
+This is an online-version of the program <strong>screen-message</strong> for Linux.
+</p>
+<p id="firefox" style="display:none">
+You can <a href="#" onclick="window.navigator.mozApps.install('http://sm.nomeata.de/sm.webapp')">install it as a FireFox app</a>.
+</p>
+<p>
+For more information about the original program, see what <a href="http://debaday.debian.net/2007/07/18/screen-message-use-your-screen-to-communicate/">Deb-a-Day</a> writes about it. You can download it from <a href="http://packages.debian.org/sid/sm">Debian</a> or <a href="http://darcs.nomeata.de/screen-message.upstream/">fetch the sourcecode</a>.
+</p>
+<p>
+<strong>screen-message</strong> was created by <a href="http://www.joachim-breitner.de/">Joachim Breitner</a>.
+If you like it, then <a href="http://flattr.com/thing/330186/screen-message" target="_blank">flattr this</a>.
+</p>
+</div>
+</body>
+</html>
