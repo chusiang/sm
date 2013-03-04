@@ -849,3 +849,24 @@ section #title .credits.right {
     display: none;
   }
 }
+
+/* == Vim to HTML with fu.vim == */
+.Boolean { color: #afd700; }
+.Comment { color: #808080; }
+.Conditional { color: #8787ff; }
+.Constant { color: #ffd700; font-weight: bold; }
+.Error { color: #ff0000; background-color: #5f0000; }
+.Function { color: #ffffff; }
+.Identifier { color: #afd75f; }
+.Keyword { color: #d7ff00; }
+.lnr { color: #a8a8a8; background-color: #080808; }
+.Number { color: #ffaf00; }
+.Operator { color: #767676; }
+.PreProc { color: #ffffaf; }
+.Special { color: #ffd700; }
+.SpecialKey { color: #5fd75f; }
+.Statement { color: #8787af; font-weight: bold; }
+.String { color: #87af5f; background-color: #121212; }
+.Type { color: #87afff; }
+.Underlined { color: #5fd7ff; text-decoration: underline; }
+
