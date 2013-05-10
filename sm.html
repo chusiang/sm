@@ -18,7 +18,7 @@
 #     Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301 USA
 -->
 <head>
-<title>Screen message</title>
+<title>SM</title>
 <style type="text/css">
 #textarea {
 	position:absolute;
@@ -27,7 +27,7 @@
 	width:100%;
 	height:100%;
 	white-space:nowrap;
-	font-family: sans;
+	font-family: sans-serif;
 	padding:0px;
 	margin:0px;
 	border:0px;
@@ -146,6 +146,9 @@ function init() {
 	parseHash();
 }
 </script>
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="format-detection" content="telephone=no">
 </head>
 <body onload="init()" onhashchange="parseHash()" onresize="adjust()">
 <textarea id="textarea" onKeyUp="adjust()" onpaste="adjust()" oninput="adjust()">:-)</textarea>
