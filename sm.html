@@ -17,6 +17,7 @@
 #     along with this program; if not, write to the Free Software
 #     Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301 USA
 -->
+
 <head>
 <title>SM</title>
 <style type="text/css">
@@ -42,7 +43,7 @@
 	left:0px;
 	font-size:30px;
 	white-space:pre;
-	font-family: sans;
+	font-family: sans-serif;
 	border:0px;
 	padding:0.1em;
 	margin:0px;
@@ -85,7 +86,7 @@ function adjust() {
 	ta.style.paddingRight = Math.max(0,Math.floor((window.innerWidth - newWidth)/2)) + "px";
 	 
 	//test.innerHTML = newHeight + " " + window.innerHeight + " " + fontSize;
-	
+
 	href =  "#t=" + encodeURIComponent(ta.value);
 	if (ta.style.color) {
 		href +=  ";f=" + encodeURIComponent(ta.style.color);
@@ -146,13 +147,17 @@ function init() {
 	parseHash();
 }
 </script>
+
+<!-- Full screen iOS webapp support -->
 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="format-detection" content="telephone=no">
+
 </head>
 <body onload="init()" onhashchange="parseHash()" onresize="adjust()">
 <textarea id="textarea" onKeyUp="adjust()" onpaste="adjust()" oninput="adjust()">:-)</textarea>
 <span id="test"></span>
+
 <div id="about" onMouseOver="showBox()" onMouseOut="fadeOut()">
 <p>
 This is an online-version of the program <strong>screen-message</strong> for Linux.
@@ -168,5 +173,6 @@ For more information about the original program, see what <a href="http://debada
 If you like it, then <a href="http://flattr.com/thing/330186/screen-message" target="_blank">flattr this</a>.
 </p>
 </div>
+
 </body>
 </html>
