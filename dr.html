@@ -20,44 +20,48 @@
 
 <head>
 <title>SM (Dark + Red)</title>
+
 <style type="text/css">
+
 #textarea {
-	position:absolute;
-	top:0px;
-	left:0px;
-	width:100%;
-	height:100%;
-	white-space:nowrap;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 100%;
+	white-space: nowrap;
 	font-family: sans-serif;
-	padding:0px;
-	margin:0px;
-	border:0px;
-	text-align:center;
-	overflow:hidden;
+	padding: 0px;
+	margin: 0px;
+	border: 0px;
+	text-align: center;
+	overflow: hidden;
+	resize: none;	/* disable resizing icon. */
 }
 
 #test {
-	position:absolute;
-	visibility:hidden;
-	top:0px;
-	left:0px;
-	font-size:30px;
-	white-space:pre;
+	position: absolute;
+	visibility: hidden;
+	top: 0px;
+	left: 0px;
+	font-size: 30px;
+	white-space: pre;
 	font-family: sans-serif;
-	border:0px;
-	padding:0.1em;
-	margin:0px;
+	border: 0px;
+	padding: 0.1em;
+	margin: 0px;
 }
 #about {
-	position:absolute;
-	width:20em;
-	top:30px;
-	right:30px;
-	background-color:gray;
-	padding:1em;
+	position: absolute;
+	width: 20em;
+	top: 30px;
+	right: 30px;
+	background-color: gray;
+	padding: 1em;
 }
 
 </style>
+
 <script type="text/javascript">
 opacity = 100;
 function adjust() {
@@ -97,6 +101,7 @@ function adjust() {
 	window.location.hash = href;
 }
 
+/*
 function showBox() {
 	opacity = 100;
 	window.clearTimeout(timeout);
@@ -111,6 +116,7 @@ function fadeOut() {
 	}
 	setOpacity();
 }
+*/
 function setOpacity() {
 	about = document.getElementById("about");
 	about.style.opacity = opacity/100;
@@ -137,7 +143,7 @@ function parseHash() {
 	}
 	adjust();
 	timeout = window.setTimeout("fadeOut();",1000);
-	setOpacity();
+	//setOpacity();
 }
 	
 function init() {
