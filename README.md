@@ -1,6 +1,6 @@
 # SM (Screen Message)
 
-Display a text as large as possible on your screen with browser ... [(read more)](http://chusiang.github.io/sm/)
+Display a text as large as possible on your screen with browser ... [(read more)](http://sm.drx.tw/)
 
 ## HowTo
 
@@ -13,7 +13,7 @@ check the links and key in something.
 
 - or you can open the mirror link on GitHub.</span>
     
-    firefox http://chusiang.github.com/sm/sm.html
+    firefox http:///sm.drx.tw/sm.html
 
 - now, we can input color value at link (with javascript).
     
