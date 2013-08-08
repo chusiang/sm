@@ -13,7 +13,7 @@ check the links and key in something.
 
 - or you can open the mirror link on GitHub.</span>
     
-    firefox http:///sm.drx.tw/sm.html
+    firefox (http:///sm.drx.tw/sm.html)
 
 - now, we can input color value at link (with javascript).
     
