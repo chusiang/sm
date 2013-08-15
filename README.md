@@ -4,8 +4,7 @@ Display a text as large as possible on your screen with browser ... [(read more)
 
 ## HowTo
 
-check the links or key in something.
-
+We can click the link or key in something with browser.
 
 - open the source web link.
 
