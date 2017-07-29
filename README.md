@@ -1,6 +1,8 @@
 # SM (Screen Message)
 
-Display a text as large as possible on your screen with browser ... [(read more)](http://sm.drx.tw/)
+Display a text as large as possible on your screen with browser. (fork from [nomeata/screen-message](https://github.com/nomeata/screen-message))
+
+> more detail on http://sm.drx.tw/
 
 ## HowTo
 
